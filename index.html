@@ -8,9 +8,7 @@
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -26,26 +24,33 @@
             </div>
         </div>
         <div class="right">
-            <nav class="roboto-regular">
-                <h2>Home</h2>
-                <h2>About us</h2>
-                <h2>Contact</h2>
-                <a class="sign" href="./login/login.html">Sign in</a>
-            </nav>
+            <div class="burger" onclick="toggleMenu()">☰</div>
+            <div class="nav-menu" id="nav-menu">
+                <nav class="roboto-regular">
+                    <h2 onclick="navigateTo('index.html')">Home</h2>
+                    <h2 onclick="navigateTo('about.html')">About us</h2>
+                    <h2 onclick="navigateTo('contact.html')">Contact</h2>
+                    <a class="sign" href="./login/login.html">Sign in</a>
+                </nav>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <div class="content">
                 <div>
                     <h1>Discover Your Style</h1>
                     <br>
-                    <p>Welcome to Style Genie , where fashion meets personal expression! Our mission is to help you look and feel your best by providing personalized styling services tailored to your unique taste and lifestyle. Whether you're looking to revamp your wardrobe, prepare for a special event, or simply want to keep up with the latest trends, we are here to guide you every step of the way.</p>
+                    <p>Welcome to Style Genie, where fashion meets personal expression! Our mission is to help you look and feel your best by providing personalized styling services tailored to your unique taste and lifestyle. Whether you're looking to revamp your wardrobe, prepare for a special event, or simply want to keep up with the latest trends, we are here to guide you every step of the way.</p>
                     <br>
                     <br>
                     <div>
-                    <h2>No matter what you need, we are here for you</h2>
-                    <br>
-                    <a class="btn" href="./Quiz/Quiz.html">Take Your Style Quiz</a>
+                        <h2>No matter what you need, we are here for you</h2>
+                        <br>
+                        <a class="btn" href="Quiz/Quiz.html">Take Your Style Quiz</a>
                     </div>
                 </div>
-                
             </div>
             <div class="icons">
                 <img src="./assets/instagram.png" alt="insta">
@@ -54,6 +59,17 @@
             </div>
         </div>
     </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
 </body>
 
 </html>

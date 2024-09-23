@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -131,4 +131,237 @@ nav >h2{
 }
 .icons > img:hover{
     transform: translateY(-5px);
+} */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+.left {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo > h1 {
+    font-size: x-large;
+    font-weight: 900;
+}
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.right {
+    background-color: #edfffd;
+}
+.burger {
+    cursor: pointer;
+    font-size: 24px;
+    color: #000; /* Default color */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10; /* Ensure it is above other elements */
+    background-color: transparent; /* Make background transparent */
+}
+
+/* Change burger color when inspecting */
+@media (max-width: 767px) {
+    .burger {
+        color: white; /* Change to white if inspecting */
+    }
+}
+
+.nav-menu {
+    display: flex; /* Start with it displayed */
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 20px; /* Adjust to align with the burger menu */
+    background-color: #edfffd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none; /* Start hidden */
+}
+
+.nav-menu.show {
+    display: flex; /* Show when the burger menu is clicked */
+}
+
+nav {
+    display: flex;
+    padding: 30px;
+    justify-content: space-around;
+    border-color: #000000;
+    border-style: double;
+    align-items: center;
+    gap: 5px;
+}
+nav > h2 {
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+}
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.sign {
+    text-decoration: none;
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+.sign:hover {
+    opacity: 90%;
+}
+.content {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 30px;
+}
+.content > p {
+    line-height: 8px;
+}
+.content > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn {
+    background-color: #ee6b29;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0;
+    padding: 0 15px;
+    line-height: 44px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn:hover {
+    opacity: 90%;
+}
+.icons {
+    margin: 20px;
+    margin-left: 50px;
+}
+.icons > img {
+    position: relative;
+    height: 35px;
+    margin: 5px;
+    cursor: pointer;
+}
+.icons > img:hover {
+    transform: translateY(-5px);
+}
+
+/* Media Queries */
+
+/* Mobile */
+@media (max-width: 767px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        margin-left: 0;
+        flex-direction: row;
+        height: auto;
+        padding: 15px;
+    }
+
+    .sign {
+        font-size: 14px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    nav {
+        flex-direction: row;
+        border: #000000;
+        border-radius: 10px;
+        border-style: double;
+        padding: 15px;
+    }
+
+    .icons {
+        margin: 10px;
+        margin-left: 20px;
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .content {
+        margin-left: 15px;
+        padding: 20px;
+    }
+
+    .sign {
+        font-size: 15px;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    nav {
+        padding: 20px;
+    }
+
+    .icons {
+        margin: 15px;
+        margin-left: 30px;
+    }
+}
+
+/* Desktop */
