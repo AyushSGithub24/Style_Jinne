@@ -1,8 +1,37 @@
-// Client-side code
 // import dotenv from "dotenv";
+// import { GoogleGenerativeAI } from "@google/generative-ai";
+// dotenv.config();
+// import { marked } from "marked";
+// const marked = require('marked');
+// const genAI=new GoogleGenerativeAI(process.env.API_KEY);
+// let k;
+// export async function run(prompt) {
+//   const model = genAI.getGenerativeModel({model:"gemini-pro"});
+//   // const prompt="Write about importence of hardwork"
+//   const result=await model.generateContent(prompt)
+//   const response = await result.response;
+//   const text= response.text();
+//   // console.log(text);
+//   const html = marked(text);
+//   return html;
+// }
+export function Key(){
+  return 'AIzaSyCuOfDKiDPMHZMAoY7GPIQ19L4CO8-8eJ0';
+}
+// document.addEventListener('click', function(event) {
+//   if (event.target.id === 'submit-button') {
+//      run(); // Call the display function when submit is clicked
+//   }
+// });
+// run()
+// console.log(k);
+// console.log(answers);
+/*
+// Client-side code
 import { GoogleGenerativeAI } from "https://cdn.skypack.dev/@google/generative-ai";
-import { Key } from "./gemini.mjs";
-const genAI = new GoogleGenerativeAI(Key());
+
+
+const genAI = new GoogleGenerativeAI('AIzaSyCuOfDKiDPMHZMAoY7GPIQ19L4CO8-8eJ0');
 const totalQuestions = 5;
 let answers = [];
 let gen; // Store gender for conditional options display
@@ -119,95 +148,27 @@ function renderQuiz() {
   updateProgressBar(1);
 }
 
-function nextQuestion() {
-  const currentQuestion = document.querySelector('.question:not([style*="display: none"])');
-  const currentQuestionNum = parseInt(currentQuestion.id.split('-')[1]);
-  const selectedOption = currentQuestion.querySelector('input[type="radio"]:checked');
-
-  if (!selectedOption) {
-    return; // Don't proceed if no option is selected
-  }
-
-  storeAnswer(currentQuestionNum, selectedOption.value);
-
-  currentQuestion.style.display = 'none';
-  const nextQuestionNum = currentQuestionNum + 1;
-
-  if (document.getElementById(`question-${nextQuestionNum}`)) {
-    const nextQuestion = document.getElementById(`question-${nextQuestionNum}`);
-    
-    // Update options for gender-dependent questions
-    if (nextQuestionNum >= 3) {
-      updateGenderSpecificOptions(nextQuestion, nextQuestionNum);
-    }
-    
-    nextQuestion.style.display = 'block';
-    updateProgressBar(nextQuestionNum);
-  } else {
-    handleSubmit();
-  }
-}
-
-function updateGenderSpecificOptions(questionDiv, questionNum) {
-  const options = questions[questionNum - 1].options(gen);
-  const optionsContainer = questionDiv.querySelector('.options');
-  optionsContainer.innerHTML = options.map(option => `
-    <label class="option">
-      <input type="radio" name="question-${questionNum}" value="${option.value}">
-      <div class="option-content">
-        <img src="${option.img}" alt="${option.label}">
-        <span>${option.label}</span>
-      </div>
-    </label>
-  `).join('');
-
-  // Re-add event listeners for new options
-  questionDiv.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', () => {
-      const radio = option.querySelector('input[type="radio"]');
-      radio.checked = true;
-      questionDiv.querySelectorAll('.option').forEach(opt => {
-        opt.classList.toggle('selected', opt === option);
-      });
-      nextQuestion();
-    });
-  });
-}
-
-function updateProgressBar(questionNumber) {
-  const progressBar = document.getElementById('progress-bar');
-  const progressPercentage = (questionNumber / totalQuestions) * 100;
-  progressBar.style.width = `${progressPercentage}%`;
-}
-
-function storeAnswer(questionNumber, answer) {
-  const questionKeys = ['gender', 'skinTone', 'bodyType', 'styleType', 'occasion'];
-  if (questionNumber === 1) {
-    gen = answer;
-  }
-  answers[questionNumber - 1] = { [questionKeys[questionNumber - 1]]: answer };
-}
-
 async function handleSubmit() {
   const styleRequest = Object.assign({}, ...answers);
   console.log("Style request:", styleRequest);
-  const prompt=`Based answers, can you help me style my cloths based on skintype, bodytype and ocassion style preferences: ${Object.entries(styleRequest).map(([key, value]) => `${key}: ${value} , u`).join('')} `
+  const prompt = `Based on answers, Can you help me give fashion style preferences: ${Object.entries(styleRequest).map(([key, value]) => `${key}: ${value}`).join(', ')}`;
+  
   const htmlContent = await run(prompt);
   const md = window.markdownit();
   const html = md.render(htmlContent);
   // console.log(htmlContent);
   displayStyleSuggestion(html);
-  // console.log(html);
-  // displayStyleSuggestion(styleRequest);
 }
+
 async function run(prompt) {
-  const model = genAI.getGenerativeModel({model:"gemini-pro"});
-  // const prompt="Write about importence of hardwork"
-  const result=await model.generateContent(prompt)
-  const response = await result.response;
-  const text= response.text();
-  // console.log(text);
-  return text;
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const result = await model.generateContent(prompt);
+  const response = result.response;
+  const text = await response.text();
+  
+  const html =text;
+  console.log(text);
+  return html;
 }
 
 function displayStyleSuggestion(htmlContent) {
@@ -219,6 +180,25 @@ function displayStyleSuggestion(htmlContent) {
   quizContainer.appendChild(suggestionDiv);
 }
 
+function updateProgressBar(currentQuestion) {
+  const progressBar = document.getElementById('progress-bar');
+  const progress = (currentQuestion / totalQuestions) * 100;
+  progressBar.style.width = `${progress}%`;
+}
+
+function nextQuestion() {
+  const currentQuestion = document.querySelector('.question:not([style*="display: none"])');
+  const nextQuestion = currentQuestion.nextElementSibling;
+
+  if (nextQuestion) {
+    currentQuestion.style.display = 'none';
+    nextQuestion.style.display = 'block';
+    updateProgressBar(parseInt(nextQuestion.id.split('-')[1]));
+  } else {
+    handleSubmit();
+  }
+}
 document.addEventListener('DOMContentLoaded', function () {
   renderQuiz();
 });
+*/
