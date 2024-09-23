@@ -16,7 +16,7 @@
 //   return html;
 // }
 export function Key(){
-  return 'AIzaSyCuOfDKiDPMHZMAoY7GPIQ19L4CO8-8eJ0';
+  return 'API_KEY';
 }
 // document.addEventListener('click', function(event) {
 //   if (event.target.id === 'submit-button') {
