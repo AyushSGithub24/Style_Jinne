@@ -1,75 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Style Genie</title>
-    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Style Genie - Your Personal Fashion Guide</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <header>
+        <div class="logo">
+            <img src="./assets/logo.png" alt="Style Genie Logo" height="100">
+            <div>
+                <h1 class="roboto-bold">Style Genie</h1>
+                <p class="roboto-thin">Style tailored for you</p>
+            </div>
+        </div>
+        <nav>
+            <button class="burger" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="./login/login.html" class="sign">Sign in</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <div class="left">
-            <div class="logo">
-                <img src="./assets/logo.png" alt="" height="100px">
-                <div>
-                    <h1 class="roboto-bold">Style Genie</h1>
-                    <h3 class="roboto-thin">Style tailored for you</h3>
-                </div>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Discover Your Style</h2>
+                <p>Welcome to Style Genie, where fashion meets personal expression! Our mission is to help you look and feel your best by providing personalized styling services tailored to your unique taste and lifestyle.</p>
+                <a href="Quiz/Quiz.html" class="btn">Take Your Style Quiz</a>
             </div>
-        </div>
-        <div class="right">
-            <div class="burger" onclick="toggleMenu()">☰</div>
-            <div class="nav-menu" id="nav-menu">
-                <nav class="roboto-regular">
-                    <h2 onclick="navigateTo('index.html')">Home</h2>
-                    <h2 onclick="navigateTo('about.html')">About us</h2>
-                    <h2 onclick="navigateTo('contact.html')">Contact</h2>
-                    <a class="sign" href="./login/login.html">Sign in</a>
-                </nav>
+        </section>
+
+        <section class="blog">
+            <h2>Latest from Our Blog</h2>
+            <div class="blog-posts">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1675881149252-a2e3d0e57e0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3VtbWVyJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Summer Fashion Trends" >
+                    <h3>Summer Fashion Trends 2024</h3>
+                    <p>Discover the hottest styles for the upcoming summer season.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1596097198305-e4844a56ddb8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VzdGFpbmFibGUlMjBmYXNoaW9ufGVufDB8fDB8fHww" alt="Sustainable Fashion">
+                    <h3>Embracing Sustainable Fashion</h3>
+                    <p>Learn how to make eco-friendly choices in your wardrobe.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="content">
-                <div>
-                    <h1>Discover Your Style</h1>
-                    <br>
-                    <p>Welcome to Style Genie, where fashion meets personal expression! Our mission is to help you look and feel your best by providing personalized styling services tailored to your unique taste and lifestyle. Whether you're looking to revamp your wardrobe, prepare for a special event, or simply want to keep up with the latest trends, we are here to guide you every step of the way.</p>
-                    <br>
-                    <br>
-                    <div>
-                        <h2>No matter what you need, we are here for you</h2>
-                        <br>
-                        <a class="btn" href="Quiz/Quiz.html">Take Your Style Quiz</a>
-                    </div>
-                </div>
-            </div>
-            <div class="icons">
-                <img src="./assets/instagram.png" alt="insta">
-                <img src="./assets/twitter.png" alt="X">
-                <img src="./assets/facebook.png" alt="fb">
-            </div>
-        </div>
+        </section>
+
+        <section class="featured-article">
+            <h2>Featured Article</h2>
+            <article>
+                <img src="https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2FyZHJvYmV8ZW58MHx8MHx8fDA%3D" alt="Wardrobe Essentials">
+                <h3>10 Wardrobe Essentials Every Woman Should Own</h3>
+                <p>Building a versatile wardrobe starts with these timeless pieces that never go out of style. From the perfect white tee to a classic blazer, we'll guide you through the must-have items that form the foundation of a great wardrobe.</p>
+                <a href="#" class="read-more">Read Full Article</a>
+            </article>
+        </section>
     </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><img src="./assets/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="./assets/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="./assets/facebook.png" alt="Facebook"></a>
+        </div>
+        <p>&copy; 2024 Style Genie. All rights reserved.</p>
+    </footer>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('nav-menu');
             menu.classList.toggle('show');
         }
-
-        function navigateTo(page) {
-            window.location.href = page;
-        }
     </script>
 </body>
-
 </html>

@@ -13,29 +13,29 @@ const questions = [
     id: 1,
     question: "What is your gender?",
     options: [
-      { value: "male", label: "Male", img: "images/male.png" },
-      { value: "female", label: "Female", img: "images/female.png" }
+      { value: "male", label: "Male", img: "./images/male.jpg" },
+      { value: "female", label: "Female", img: "./images/female.jpg" }
     ]
   },
   {
     id: 2,
     question: "What is your skin tone?",
     options: [
-      { value: "neutral", label: "Neutral", img: "images/neutral.png" },
-      { value: "warm", label: "Warm", img: "images/warm.png" },
-      { value: "cold", label: "Cold", img: "images/cold.png" }
+      { value: "neutral", label: "Neutral", img:"./images/Screenshot 2024-10-19 133908.png"  },
+      { value: "warm", label: "Warm", img: "./images/war.png" },
+      { value: "cold", label: "Cold", img: "./images/co.png" }
     ]
   },
   {
     id: 3,
     question: "What is your body type?",
     options: (gender) => gender === "male" ? [
-      { value: "rectangle", label: "Rectangle", img: "images/male_rectangle.png" },
-      { value: "trapezoid", label: "Trapezoid", img: "images/male_trapezoid.png" },
-      { value: "oval", label: "Oval", img: "images/male_oval.png" }
+      { value: "rectangle", label: "Rectangle", img: "./images/trapiod.jpg" },
+      { value: "trapezoid", label: "Trapezoid", img: "./images/rectrancle.jpg" },
+      { value: "oval", label: "Oval", img: "./images/oval.jpg" }
     ] : [
-      { value: "hourglass", label: "Hourglass", img: "images/female_hourglass.png" },
-      { value: "triangle", label: "Triangle", img: "images/female_triangle.png" },
+      { value: "hourglass", label: "Hourglass", img:"./images/hourglass.jpg" },
+      { value: "triangle", label: "Triangle", img:"./images/triangle-women.jpg" },
       { value: "pear", label: "Pear", img: "images/female_pear.png" }
     ]
   },
@@ -43,26 +43,26 @@ const questions = [
     id: 4,
     question: "What type of style do you want?",
     options: (gender) => gender === "male" ? [
-      { value: "classic", label: "Classic", img: "images/male_classic.png" },
-      { value: "casual", label: "Casual", img: "images/male_casual.png" },
-      { value: "trendy", label: "Trendy", img: "images/male_trendy.png" }
+      { value: "Formal", label: "Classic", img: "./images/formal.jpg" },
+      { value: "casual", label: "Casual", img:  "./images/formal.jpg" },
+      { value: "trendy", label: "Trendy", img:  "./images/formal.jpg" }
     ] : [
-      { value: "bohemian", label: "Bohemian", img: "images/female_bohemian.png" },
-      { value: "preppy", label: "Preppy", img: "images/female_preppy.png" },
-      { value: "glamorous", label: "Glamorous", img: "images/female_glamorous.png" }
+      { value: "bohemian", label: "Bohemian", img: "./images/formal.jpg"},
+      { value: "preppy", label: "Preppy", img:  "./images/formal.jpg"},
+      { value: "glamorous", label: "Glamorous", img:  "./images/formal.jpg" }
     ]
   },
   {
     id: 5,
     question: "For what type of occasion do you want to be styled?",
     options: (gender) => gender === "male" ? [
-      { value: "business", label: "Business Meeting", img: "images/male_business.png" },
-      { value: "date", label: "Date Night", img: "images/male_date.png" },
-      { value: "weekend", label: "Weekend Outing", img: "images/male_weekend.png" }
+      { value: "business", label: "Business Meeting", img: "./images/formal.jpg" },
+      { value: "date", label: "Date Night", img:  "./images/formal.jpg"},
+      { value: "weekend", label: "Weekend Outing", img: "./images/formal.jpg" }
     ] : [
-      { value: "cocktail", label: "Cocktail Party", img: "images/female_cocktail.png" },
-      { value: "wedding", label: "Wedding Guest", img: "images/female_wedding.png" },
-      { value: "brunch", label: "Sunday Brunch", img: "images/female_brunch.png" }
+      { value: "cocktail", label: "Cocktail Party", img: "./images/traditional.jpg" },
+      { value: "wedding", label: "Wedding Guest", img: "./images/formal.jpg" },
+      { value: "brunch", label: "Sunday Brunch", img:  "./images/formal.jpg" }
     ]
   }
 ];

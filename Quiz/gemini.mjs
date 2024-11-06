@@ -16,7 +16,7 @@
 //   return html;
 // }
 export function Key(){
-  return 'API_KEY';
+  return 'API_KEy';
 }
 // document.addEventListener('click', function(event) {
 //   if (event.target.id === 'submit-button') {

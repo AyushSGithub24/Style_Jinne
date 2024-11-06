@@ -1,367 +1,303 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
-
-main{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
-}
-.left{
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-
-}
-.logo{
-    display: flex;
-    align-items: center;
-}
-.logo >h1 {
-    font-size: x-large;
-    font-weight: 900;
-}
-.roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-  }
-.roboto-thin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
-.right{
-    background-color: #edfffd;
-}
-nav{
-    display: flex;
-    padding: 30px;
-    justify-content: space-around;
-    align-items: center;
-    gap: 5px;
-}
-nav >h2{
-    cursor: pointer;
-}
-.roboto-regular {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-.sign{
-    text-decoration: none;
-    align-items: center;
-    background-color: #0A66C2;
-    border: 0;
-    border-radius: 100px;
-    box-sizing: border-box;
-    color: #ffffff;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    justify-content: center;
-    max-width: 480px;
-    min-height: 40px;
-    min-width: 0px;
-    overflow: hidden;
-    padding: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-    vertical-align: middle;
-}
-.sign:hover{
-    opacity: 90%;
-}
-.content{
-    margin-left: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    padding: 30px;
-}
-  
-.content > p{
-    line-height: 8px;
-    
-}
-
-.content > div > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn{
-    background-color: #ee6b29;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 0;
-    padding: 0 15px;
-    line-height: 44px;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-}
-.btn:hover{
-    opacity: 90%;
-}
-.icons{
-    margin: 20px;
-    margin-left: 50px;
-}
-.icons > img {
-    position: relative;
-    height: 35px;
-    margin: 5px;
-    cursor: pointer;
-}
-.icons > img:hover{
-    transform: translateY(-5px);
-} */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
 }
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
-.left {
-    background-color: black;
+
+.roboto-bold {
+    font-weight: 700;
+}
+
+.roboto-thin {
+    font-weight: 100;
+}
+
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    color: white;
 }
+
 .logo {
     display: flex;
     align-items: center;
-}
-.logo > h1 {
-    font-size: x-large;
-    font-weight: 900;
-}
-.roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-}
-.roboto-thin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
-.right {
-    background-color: #edfffd;
-}
-.burger {
-    cursor: pointer;
-    font-size: 24px;
-    color: #000; /* Default color */
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10; /* Ensure it is above other elements */
-    background-color: transparent; /* Make background transparent */
+    /* justify-content: space-around;
+    padding:0 20px; */
 }
 
-/* Change burger color when inspecting */
-@media (max-width: 767px) {
-    .burger {
-        color: white; /* Change to white if inspecting */
-    }
+.logo img {
+    margin-right: 1rem;
 }
 
-.nav-menu {
-    display: flex; /* Start with it displayed */
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 20px; /* Adjust to align with the burger menu */
-    background-color: #edfffd;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    display: none; /* Start hidden */
-}
-
-.nav-menu.show {
-    display: flex; /* Show when the burger menu is clicked */
-}
-
-nav {
+nav ul {
+    list-style-type: none;
     display: flex;
-    padding: 30px;
-    justify-content: space-around;
-    border-color: #000000;
-    border-style: double;
-    align-items: center;
-    gap: 5px;
 }
-nav > h2 {
-    cursor: pointer;
-    font-size: 14px; /* Smaller font size */
+
+nav ul li {
+    margin-left: 1.5rem;
 }
-.roboto-regular {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-.sign {
+
+nav ul li a {
+    color: #fff;
     text-decoration: none;
-    align-items: center;
-    background-color: #0A66C2;
-    border: 0;
-    border-radius: 100px;
-    box-sizing: border-box;
-    color: #ffffff;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    justify-content: center;
-    max-width: 480px;
-    min-height: 40px;
-    min-width: 0px;
-    overflow: hidden;
-    padding: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-    vertical-align: middle;
+    font-weight: 400;
 }
-.sign:hover {
-    opacity: 90%;
-}
-.content {
-    margin-left: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    padding: 30px;
-}
-.content > p {
-    line-height: 8px;
-}
-.content > div > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.btn {
-    background-color: #ee6b29;
+
+.burger {
+    display: none;
+    background: none;
     border: none;
     color: #fff;
-    font-size: 16px;
-    border-radius: 0;
-    padding: 0 15px;
-    line-height: 44px;
-    font-weight: 600;
-    border-radius: 6px;
+    font-size: 1.5rem;
     cursor: pointer;
+}
+
+.sign {
+    background-color: #0A66C2;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
     text-decoration: none;
+    font-weight: 600;
 }
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ee6b29;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
 .btn:hover {
-    opacity: 90%;
+    opacity: 0.9;
 }
-.icons {
-    margin: 20px;
-    margin-left: 50px;
+
+.blog, .featured-article {
+    margin-bottom: 3rem;
 }
-.icons > img {
-    position: relative;
-    height: 35px;
-    margin: 5px;
-    cursor: pointer;
+
+.blog h2, .featured-article h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
-.icons > img:hover {
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-posts article, .featured-article article {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.blog-posts img, .featured-article img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.blog-posts h3, .featured-article h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #0A66C2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer {
+    background-color: #444343;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-icons {
+    margin-bottom: 1rem;
+    z-index: 50;
+}
+
+.social-icons a {
+    margin: 0 0.5rem;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
     transform: translateY(-5px);
 }
 
-/* Media Queries */
-
-/* Mobile */
-@media (max-width: 767px) {
-    main {
-        grid-template-columns: 1fr;
-    }
-
-    .content {
-        margin-left: 0;
-        flex-direction: row;
-        height: auto;
-        padding: 15px;
-    }
-
-    .sign {
-        font-size: 14px;
-        padding-left: 15px;
-        padding-right: 15px;
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     nav {
-        flex-direction: row;
-        border: #000000;
-        border-radius: 10px;
-        border-style: double;
-        padding: 15px;
+        margin-top: 1rem;
+        width: 100%;
     }
 
-    .icons {
-        margin: 10px;
-        margin-left: 20px;
+    nav ul {
+        flex-direction: column;
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
     }
 
     .burger {
         display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .blog-posts {
+        grid-template-columns: 1fr;
     }
 }
+/* ... (previous CSS rules remain the same) ... */
 
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
-    main {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .content {
-        margin-left: 15px;
-        padding: 20px;
-    }
-
-    .sign {
-        font-size: 15px;
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    nav {
-        padding: 20px;
-    }
-
-    .icons {
-        margin: 15px;
-        margin-left: 30px;
-    }
+.hero {
+    background-image: url('https://images.unsplash.com/photo-1569310409006-084c53a52953?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFydGlzdGljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
-/* Desktop */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ee6b29;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #d55a1b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ... (rest of the CSS remains the same) ... */
+
+@media (max-width: 768px) {
+    /* ... (previous mobile styles remain the same) ... */
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+    }
+}
