@@ -64,6 +64,30 @@
             </article>
         </section>
     </main>
+    <div id="chatbot-container" class="fixed bottom-5 right-5">
+        <!-- Chat Bubble -->
+        <div id="chat-bubble" class="chat-bubble" onclick="toggleChatWindow()">💬</div>
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window hidden">
+          <div class="chat-header">
+            <span>Ask Style Genie</span>
+            <button class="close-btn" onclick="toggleChatWindow()">X</button>
+          </div>
+          <div id="chat-history" class="chat-history"></div>
+          <div class="input-container">
+            <textarea id="user-question" placeholder="Ask something..." rows="3"></textarea>
+            <div class="input-buttons">
+              <button id="mic-btn" class="mic-btn" onclick="startSpeechRecognition()">🎤 (English)</button>
+              <button id="send-btn" class="send-btn" onclick="generateAnswer()">Send</button>
+            </div>
+          </div>
+          <div class="language-switch">
+            <button onclick="switchToHindi()">Switch to Hindi</button>
+            <button onclick="switchToEnglish()">Switch to English</button>
+          </div>
+        </div>
+      </div>
+      <script src="Chatbot.js"></script>
 
     <footer>
         <div class="social-icons">
