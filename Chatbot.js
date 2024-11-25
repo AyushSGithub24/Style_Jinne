@@ -1,5 +1,5 @@
 const API_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAhsNK5g8jFXJARjuiSH7BXlfdn0Pywo0s";
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyBuCiaTclSpNqY07XQ2Drc46LsOMX63BYk";
 
 let isChatOpen = false;
 let language = "en"; // Default language is English
@@ -58,8 +58,10 @@ async function generateAnswer(question) {
     const data = await response.json();
 
     // Extract AI's response
+    const md = window.markdownit();
     const answer = data.candidates[0]?.content?.parts[0]?.text || "No response.";
-    updateLastMessage("AI", answer);
+    const html = md.render(answer)
+    updateLastMessage("AI", html);
   } catch (error) {
     console.error("Error:", error);
     updateLastMessage("AI", "Error generating answer. Please try again.");

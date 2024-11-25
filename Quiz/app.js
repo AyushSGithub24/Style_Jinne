@@ -188,27 +188,74 @@ function storeAnswer(questionNumber, answer) {
   answers[questionNumber - 1] = { [questionKeys[questionNumber - 1]]: answer };
 }
 
+// async function handleSubmit() {
+//   const styleRequest = Object.assign({}, ...answers);
+//   console.log("Style request:", styleRequest);
+//   const prompt=`Based answers, can you help me style my cloths based on skintype, bodytype and ocassion style preferences: ${Object.entries(styleRequest).map(([key, value]) => `${key}: ${value} , u`).join('')} `
+  
+//   const htmlContent = await run(prompt);
+//   const md = window.markdownit();
+//   const html = md.render(htmlContent);
+//   // console.log(htmlContent);
+//   displayStyleSuggestion(html);
+//   // console.log(html);
+//   // displayStyleSuggestion(styleRequest);
+// }
+// async function run(prompt) {
+//   const model = genAI.getGenerativeModel({model:"gemini-pro"});
+//   // const prompt="Write about importence of hardwork"
+//   const result=await model.generateContent(prompt)
+//   const response = await result.response;
+//   const text= response.text();
+//   // console.log(text);
+//   return text;
+// }
 async function handleSubmit() {
   const styleRequest = Object.assign({}, ...answers);
   console.log("Style request:", styleRequest);
-  const prompt=`Based answers, can you help me style my cloths based on skintype, bodytype and ocassion style preferences: ${Object.entries(styleRequest).map(([key, value]) => `${key}: ${value} , u`).join('')} `
-  const htmlContent = await run(prompt);
-  const md = window.markdownit();
-  const html = md.render(htmlContent);
-  // console.log(htmlContent);
-  displayStyleSuggestion(html);
-  // console.log(html);
-  // displayStyleSuggestion(styleRequest);
+
+  // Show the loading spinner
+  toggleLoadingSpinner(true);
+
+  const prompt = `Based answers, can you help me style my clothes based on skintype, bodytype and occasion style preferences: ${Object.entries(styleRequest).map(([key, value]) => `${key}: ${value}`).join(', ')} `;
+  try {
+    const htmlContent = await run(prompt);
+
+    const md = window.markdownit();
+    const html = md.render(htmlContent);
+
+    displayStyleSuggestion(html);
+  } catch (error) {
+    console.error("Error fetching style suggestions:", error);
+  } finally {
+    // Hide the loading spinner
+    toggleLoadingSpinner(false);
+  }
 }
+
 async function run(prompt) {
-  const model = genAI.getGenerativeModel({model:"gemini-pro"});
-  // const prompt="Write about importence of hardwork"
-  const result=await model.generateContent(prompt)
-  const response = await result.response;
-  const text= response.text();
-  // console.log(text);
-  return text;
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  try {
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = await response.text();
+    return text;
+  } catch (error) {
+    console.error("Error in API call:", error);
+    throw error; // Re-throw the error for handling in handleSubmit
+  }
 }
+
+// Function to toggle the loading spinner
+function toggleLoadingSpinner(show) {
+  const spinner = document.getElementById('loading-spinner');
+  if (show) {
+    spinner.classList.remove('hidden');
+  } else {
+    spinner.classList.add('hidden');
+  }
+}
+
 
 function displayStyleSuggestion(htmlContent) {
   const suggestionDiv = document.createElement('div');

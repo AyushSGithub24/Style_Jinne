@@ -16,7 +16,8 @@
 //   return html;
 // }
 export function Key(){
-  return 'API_KEY';
+  // AIzaSyBuCiaTclSpNqY07XQ2Drc46LsOMX63BYk
+  return 'AIzaSyBuCiaTclSpNqY07XQ2Drc46LsOMX63BYk';
 }
 // document.addEventListener('click', function(event) {
 //   if (event.target.id === 'submit-button') {
