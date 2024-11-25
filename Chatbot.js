@@ -1,5 +1,5 @@
 const API_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAhsNK5g8jFXJARjuiSH7BXlfdn0Pywo0s";
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAlUw-6Qr2d99krwAEioNEGX28dbCGR3cU";
 
 let isChatOpen = false;
 let language = "en"; // Default language is English
