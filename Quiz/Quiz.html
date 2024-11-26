@@ -1,26 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Style Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="quiz-container">
         <!-- <div class="progress-container">
             <div id="progress-bar" class="progress-bar"></div>
         </div> -->
         <!-- Questions will be dynamically inserted here -->
-        
+
     </div>
     <div id="loading-spinner" class="hidden">
         <div class="spinner"></div>
     </div>
+    <div class="hidden" id="pic">
+       <input type="file" id="imageUploader" accept="image/*">
+       <img id="uploadedImage" alt="Uploaded Image" style="display: none;" height="500px">
+       <canvas id="imageCanvas" style="display: none;"></canvas>
+       <h2>Dominant Colors</h2>
+       <div id="colorDisplay"></div>
+       <h2>Skin Tone Analysis</h2>
+       <div id="skinToneDisplay"></div>
+
+        <div id="styleMatch">
+            
+        </div>
+
+    </div>
+  
+  
     <!-- <script type="module" src="./gemini.mjs"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix"></script>
     <script type="module" src="app.js"></script>
+
     <!-- <img src="./images/traditional.jpg" alt="" srcset=""> -->
-    
+    <!-- <script>
+        
+
+        console.log(extractColors)
+        const input = document.getElementById("pic");
+        console.log(input);
+        input.addEventListener("change", (e) => {
+            console.log(e);
+            console.log(input);
+            console.log(input.files[0]);
+        })
+    </script> -->
 </body>
+
 </html>

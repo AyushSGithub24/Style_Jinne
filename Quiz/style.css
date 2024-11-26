@@ -6,15 +6,14 @@ body {
     background-image: url("../assets/pexels-pavel-danilyuk-6461063.jpg");
 }
 
-.quiz-container {
+.quiz-container,#pic {
 
-    max-width: 600px;
+    max-width:700px;
     margin: 50px auto;
     padding: 20px;
     background-color: #f4eaea6a;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    text-align: center;
 }
 
 h1 {
@@ -85,9 +84,6 @@ h2 {
     transform: scale(1.05);
 }
 
-input{
-    display: none;
-}
 
 
 .button {
@@ -139,8 +135,8 @@ body {
     padding: 0;
 }
 
-.quiz-container {
-    max-width: 600px;
+.quiz-container,#pic {
+    max-width: 700px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
@@ -198,6 +194,43 @@ h2 {
   .hidden {
     display: none;
   }
+  #uploadedImage, #isolatedImage {
+    max-width: 100%;
+    margin: 20px 0;
+}
+#colorDisplay, #skinToneDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+.color-box {
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    text-align: center;
+    position: relative;
+}
+.color-percentage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 2px 5px;
+}
+#imageUploader {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
