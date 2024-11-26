@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Sustainable Fashion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            color: #333;
+            line-height: 1.8;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: peachpuff;
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            font-family: 'Playfair Display', 'Georgia', serif;
+
+        }
+
+        .navbar .menu {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            font-family: 'Playfair Display', 'Georgia', serif;
+
+        }
+
+        .navbar .menu li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .menu li a:hover {
+            background-color: #ddd;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 800px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .blog-title {
+            font-size: 3rem;
+            margin: 1.5rem 0;
+            color: #444;
+        }
+
+        .post-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: -250px;
+            z-index: 100;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 2.5rem;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: peachpuff;
+            border-top: 2px solid #eee;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            /* justify-content: space-around;
+    padding:0 20px; */
+        }
+
+        .logo img {
+            margin-right: 1rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .sign {
+            background-color: #0A66C2;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+
+        }
+
+        .social-icons {
+            margin-bottom: 1rem;
+            z-index: 50;
+        }
+
+        .social-icons a {
+            margin: 0 0.5rem;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+            filter: invert(0);
+            background-color: white;
+            border-radius: 50%;
+
+        }
+
+        .social-icons img:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-content {
+            position: relative;
+            top: -30px;
+            height: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./assets/logo.png" alt="Style Genie Logo" height="100">
+            <div>
+                <h1 class="roboto-bold">Style Genie</h1>
+                <p class="roboto-thin">Style tailored for you</p>
+            </div>
+        </div>
+        <nav>
+            <button class="burger" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="blog-content">
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1596097198305-e4844a56ddb8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VzdGFpbmFibGUlMjBmYXNoaW9ufGVufDB8fDB8fHww"
+                alt="Sustainable Fashion" class="hero-image">
+
+        </section>
+
+        <section class="post-content">
+            <h1 class="blog-title">Embracing Sustainable Fashion</h1>
+            <h2>Understanding Sustainable Fashion</h2>
+            <p>
+                Sustainable fashion focuses on reducing the environmental and ethical impact of clothing production. It
+                involves using eco-friendly materials, minimizing waste, and ensuring fair labor practices. Brands are
+                exploring innovative methods like upcycling to repurpose old garments and reduce resource dependency.
+            </p>
+
+            <h2>Why It Matters</h2>
+            <p>
+                The fashion industry significantly contributes to pollution and waste. By embracing sustainable
+                practices, consumers can mitigate these effects, promoting durability and ethical standards. Choosing
+                quality over quantity reduces waste while supporting responsible brands.
+            </p>
+
+            <h2>Building a Sustainable Wardrobe</h2>
+            <p>
+                Start by evaluating your wardrobe and incorporating versatile, timeless pieces. Shop consciously,
+                prioritize sustainable certifications, and explore thrift stores to minimize environmental impact. Learn
+                basic repair skills to extend garment life and reduce waste.
+            </p>
+
+            <h2>The Role of Innovation</h2>
+            <p>
+                Technology drives sustainable fashion, introducing biodegradable fabrics and circular production models.
+                Companies are designing products with reuse and recycling in mind, minimizing waste at every stage of
+                the lifecycle.
+            </p>
+
+            <h2>Small Changes, Big Impact</h2>
+            <p>
+                Simple habits like washing clothes in cold water, avoiding synthetic fabrics, and supporting local
+                artisans can contribute to sustainability. By making mindful choices, individuals can foster a more
+                responsible and stylish future.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <div class="social-icons">
+            <a href="#"><img src="./assets/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="./assets/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="./assets/facebook.png" alt="Facebook"></a>
+        </div>
+        &copy; 2024 Style Genie. All rights reserved.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>

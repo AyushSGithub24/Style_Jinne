@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Sustainable Fashion</title>
+    <style>
+       body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            color: #333;
+            line-height: 1.8;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: peachpuff;
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            font-family: 'Playfair Display', 'Georgia', serif;
+
+        }
+
+        .navbar .menu {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            font-family: 'Playfair Display', 'Georgia', serif;
+
+        }
+
+        .navbar .menu li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .menu li a:hover {
+            background-color: #ddd;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 800px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .blog-title {
+            font-size: 3rem;
+            margin: 1.5rem 0;
+            color: #444;
+        }
+
+        .post-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: -250px;
+            z-index: 100;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 2.5rem;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: peachpuff;
+            border-top: 2px solid #eee;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            /* justify-content: space-around;
+    padding:0 20px; */
+        }
+
+        .logo img {
+            margin-right: 1rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .sign {
+            background-color: #0A66C2;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+
+        }
+
+        .social-icons {
+            margin-bottom: 1rem;
+            z-index: 50;
+        }
+
+        .social-icons a {
+            margin: 0 0.5rem;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+            filter: invert(0);
+            background-color: white;
+            border-radius: 50%;
+
+        }
+
+        .social-icons img:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-content {
+            position: relative;
+            top: -30px;
+            height: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./assets/logo.png" alt="Style Genie Logo" height="100">
+            <div>
+                <h1 class="roboto-bold">Style Genie</h1>
+                <p class="roboto-thin">Style tailored for you</p>
+            </div>
+        </div>
+        <nav>
+            <button class="burger" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-content">
+        <section class="hero">
+            <img src="./assets/image3.jpg" alt="Sustainable Fashion" class="hero-image">
+            
+        </section>
+
+        <section class="post-content">
+            <!-- <h2>Understanding Sustainable Fashion</h2> -->
+            <h1 class="blog-title">Wardrobe Essentials Every Woman Should Own
+            </h1>
+            <p>
+                A well-curated wardrobe can transform your style and simplify daily outfit decisions. Key essentials are timeless pieces that create a foundation for countless looks. A Little Black Dress (LBD) is a classic that suits all occasions, offering both elegance and versatility. Pair it with heels for an evening event or dress it down with a jacket for a more casual day look. Similarly, a tailored blazer is essential for adding sophistication to both professional and casual outfits, while a quality white shirt remains a timeless staple, adaptable for work or weekends.
+
+            <!-- <h2>Why It Matters</h2> -->
+            <p>
+                Denim jeans are an absolute must-have, and their versatility can't be overstated. Whether you prefer skinny, straight-leg, or bootcut styles, a well-fitting pair of jeans is perfect for dressing up with a blazer or down with a t-shirt. Another foundational piece is the cozy knit sweater, which works in both winter and fall. It can be layered over a shirt or paired with skirts and jeans for extra warmth without sacrificing style.
+            </p>
+
+            <!-- <h2>Building a Sustainable Wardrobe</h2> -->
+            <p>
+                Every woman should also own a versatile coat, such as a tailored trench or a wool overcoat, perfect for both practicality and style in cooler weather. For footwear, neutral flats or heels provide the perfect balance between comfort and elegance, complementing almost any outfit. These staples elevate your wardrobe without needing constant updates. Lastly, a high-quality leather handbag adds a touch of sophistication to every look, offering both style and function with ample space for your daily essentials.
+            </p>
+
+            <!-- <h2>The Role of Innovation</h2> -->
+            <p>
+                These wardrobe essentials serve as the foundation for a well-rounded and fashionable closet, allowing you to create versatile outfits for any occasion
+            </p>
+
+          
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><img src="./assets/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="./assets/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="./assets/facebook.png" alt="Facebook"></a>
+        </div>
+        &copy; 2024 Style Genie. All rights reserved.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
