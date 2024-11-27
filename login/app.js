@@ -6,7 +6,7 @@ let underline=document.querySelector('.underline')
 let text=document.querySelector('.text');
 
 signInBtn.addEventListener('click',()=>{
-    nameField.style.maxHeight='0';
+    nameField.style.display="none";
     title.textContent='Sign In';
     text.textContent='Forget Password'
     signUpBtn.classList.add("disable");
@@ -14,7 +14,8 @@ signInBtn.addEventListener('click',()=>{
     underline.style.transform='translateX(35px)';
     const email = document.getElementById('emailInput').value;
     const password = document.getElementById('passwordInput').value;
-    signIn(email, password);
+    setTimeout( signIn(email, password),1000)
+   
   
     
 })

@@ -3,9 +3,197 @@
 import { GoogleGenerativeAI } from "https://cdn.skypack.dev/@google/generative-ai";
 import { Key } from "./gemini.mjs";
 const genAI = new GoogleGenerativeAI(Key());
+// const totalQuestions = 5;
+// let answers = [];
+// let gen; // Store gender for conditional options display
+
+// // Array of questions
+// const questions = [
+//   {
+//     id: 1,
+//     question: "What is your gender?",
+//     options: [
+//       { value: "male", label: "Male", img: "./images/male.jpg" },
+//       { value: "female", label: "Female", img: "./images/female.jpg" }
+//     ]
+//   },
+//   {
+//     id: 2,
+//     question: "What is your skin tone?",
+//     options: (gender) => gender   !== "male" ? [
+//       { value: "neutral", label: "Neutral", img:"./images/Screenshot 2024-10-19 133908.png"  },
+//       { value: "warm", label: "Warm", img: "./images/war.png" },
+//       { value: "cold", label: "Cold", img: "./images/co.png" }
+//     ] :  [
+//       { value: "neutral", label: "Neutral", img:"./images/neturalMen.png"  },
+//       { value: "warm", label: "Warm", img: "./images/warmMen.png" },
+//       { value: "cold", label: "Cold", img: "./images/coolMen.png" }
+//     ]
+//   },
+//   {
+//     id: 3,
+//     question: "What is your body type?",
+//     options: (gender) => gender === "male" ? [
+//       { value: "rectangle", label: "Rectangle", img: "./images/trapiod.jpg" },
+//       { value: "trapezoid", label: "Trapezoid", img: "./images/rectrancle.jpg" },
+//       { value: "oval", label: "Oval", img: "./images/oval.jpg" }
+//     ] : [
+//       { value: "hourglass", label: "Hourglass", img:"./images/hourglass.jpg" },
+//       { value: "triangle", label: "Triangle", img:"./images/triangle-women.jpg" },
+//       { value: "pear", label: "Pear", img: "images/female_pear.png" }
+//     ]
+//   },
+//   {
+//     id: 4,
+//     question: "What type of style do you want?",
+//     options: (gender) => gender === "male" ? [
+//       { value: "Formal", label: "Classic", img: "./images/formal.jpg" },
+//       { value: "casual", label: "Casual", img:  "./images/formal.jpg" },
+//       { value: "trendy", label: "Trendy", img:  "./images/formal.jpg" }
+//     ] : [
+//       { value: "bohemian", label: "Bohemian", img: "./images/formal.jpg"},
+//       { value: "preppy", label: "Preppy", img:  "./images/formal.jpg"},
+//       { value: "glamorous", label: "Glamorous", img:  "./images/formal.jpg" }
+//     ]
+//   },
+//   {
+//     id: 5,
+//     question: "For what type of occasion do you want to be styled?",
+//     options: (gender) => gender === "male" ? [
+//       { value: "business", label: "Business Meeting", img: "./images/formal.jpg" },
+//       { value: "date", label: "Date Night", img:  "./images/formal.jpg"},
+//       { value: "weekend", label: "Weekend Outing", img: "./images/formal.jpg" }
+//     ] : [
+//       { value: "cocktail", label: "Cocktail Party", img: "./images/traditional.jpg" },
+//       { value: "wedding", label: "Wedding Guest", img: "./images/formal.jpg" },
+//       { value: "brunch", label: "Sunday Brunch", img:  "./images/formal.jpg" }
+//     ]
+//   }
+// ];
+
+// function renderQuiz() {
+//   const quizContainer = document.querySelector('.quiz-container');
+//   quizContainer.innerHTML = ''; // Clear existing content
+  
+//   // Add progress bar
+//   quizContainer.innerHTML = `
+//     <div class="progress-container">
+//       <div id="progress-bar" class="progress-bar"></div>
+//     </div>
+//   `;
+  
+//   questions.forEach((q, index) => {
+//     const questionDiv = document.createElement('div');
+//     questionDiv.className = 'question';
+//     questionDiv.id = `question-${q.id}`;
+//     questionDiv.style.display = index === 0 ? 'block' : 'none';
+
+//     const options = typeof q.options === "function" ? q.options(gen) : q.options;
+
+//     questionDiv.innerHTML = `
+//       <h2>Q${q.id}: ${q.question}</h2>
+//       <div class="options">
+//         ${options.map(option => `
+//           <label class="option">
+//             <input type="radio" name="question-${q.id}" value="${option.value}">
+//             <div class="option-content">
+//               <img src="${option.img}" alt="${option.label}">
+//               <span>${option.label}</span>
+//             </div>
+//           </label>
+//         `).join('')}
+//       </div>
+//     `;
+
+//     quizContainer.appendChild(questionDiv);
+//   });
+  
+//   // Add event listeners for option selection
+//   quizContainer.querySelectorAll('.option').forEach(option => {
+//     option.addEventListener('click', () => {
+//       const radio = option.querySelector('input[type="radio"]');
+//       radio.checked = true;
+//       option.closest('.question').querySelectorAll('.option').forEach(opt => {
+//         opt.classList.toggle('selected', opt === option);
+//       });
+//       nextQuestion();
+//     });
+//   });
+
+//   updateProgressBar(1);
+// }
+
+// function nextQuestion() {
+//   const currentQuestion = document.querySelector('.question:not([style*="display: none"])');
+//   const currentQuestionNum = parseInt(currentQuestion.id.split('-')[1]);
+//   const selectedOption = currentQuestion.querySelector('input[type="radio"]:checked');
+
+//   if (!selectedOption) {
+//     return; // Don't proceed if no option is selected
+//   }
+
+//   storeAnswer(currentQuestionNum, selectedOption.value);
+
+//   currentQuestion.style.display = 'none';
+//   const nextQuestionNum = currentQuestionNum + 1;
+
+//   if (document.getElementById(`question-${nextQuestionNum}`)) {
+//     const nextQuestion = document.getElementById(`question-${nextQuestionNum}`);
+    
+//     // Update options for gender-dependent questions
+//     if (nextQuestionNum >= 3) {
+//       updateGenderSpecificOptions(nextQuestion, nextQuestionNum);
+//     }
+    
+//     nextQuestion.style.display = 'block';
+//     updateProgressBar(nextQuestionNum);
+//   } else {
+//     handleSubmit();
+//   }
+// }
+
+// function updateGenderSpecificOptions(questionDiv, questionNum) {
+//   const options = questions[questionNum - 1].options(gen);
+//   const optionsContainer = questionDiv.querySelector('.options');
+//   optionsContainer.innerHTML = options.map(option => `
+//     <label class="option">
+//       <input type="radio" name="question-${questionNum}" value="${option.value}">
+//       <div class="option-content">
+//         <img src="${option.img}" alt="${option.label}">
+//         <span>${option.label}</span>
+//       </div>
+//     </label>
+//   `).join('');
+
+//   // Re-add event listeners for new options
+//   questionDiv.querySelectorAll('.option').forEach(option => {
+//     option.addEventListener('click', () => {
+//       const radio = option.querySelector('input[type="radio"]');
+//       radio.checked = true;
+//       questionDiv.querySelectorAll('.option').forEach(opt => {
+//         opt.classList.toggle('selected', opt === option);
+//       });
+//       nextQuestion();
+//     });
+//   });
+// }
+
+// function updateProgressBar(questionNumber) {
+//   const progressBar = document.getElementById('progress-bar');
+//   const progressPercentage = (questionNumber / totalQuestions) * 100;
+//   progressBar.style.width = `${progressPercentage}%`;
+// }
+
+// function storeAnswer(questionNumber, answer) {
+//   const questionKeys = ['gender', 'skinTone', 'bodyType', 'styleType', 'occasion'];
+//   if (questionNumber === 1) {
+//     gen = answer;
+//   }
+//   answers[questionNumber - 1] = { [questionKeys[questionNumber - 1]]: answer };
+// }
 const totalQuestions = 5;
-let answers = [];
-let gen; // Store gender for conditional options display
+let answers = []; // Store user's answers
+let gen; // To store selected gender for conditional options display
 
 // Array of questions
 const questions = [
@@ -20,76 +208,98 @@ const questions = [
   {
     id: 2,
     question: "What is your skin tone?",
-    options: [
-      { value: "neutral", label: "Neutral", img:"./images/Screenshot 2024-10-19 133908.png"  },
-      { value: "warm", label: "Warm", img: "./images/war.png" },
-      { value: "cold", label: "Cold", img: "./images/co.png" }
-    ]
+    options: (gender) =>
+      gender !== "male"
+        ? [
+            { value: "neutral", label: "Neutral", img: "./images/Screenshot 2024-10-19 133908.png" },
+            { value: "warm", label: "Warm", img: "./images/war.png" },
+            { value: "cold", label: "Cold", img: "./images/co.png" }
+          ]
+        : [
+            { value: "neutral", label: "Neutral", img: "./images/neturalMen.png" },
+            { value: "warm", label: "Warm", img: "./images/warmMen.png" },
+            { value: "cold", label: "Cold", img: "./images/coolMen.png" }
+          ]
   },
   {
     id: 3,
     question: "What is your body type?",
-    options: (gender) => gender === "male" ? [
-      { value: "rectangle", label: "Rectangle", img: "./images/trapiod.jpg" },
-      { value: "trapezoid", label: "Trapezoid", img: "./images/rectrancle.jpg" },
-      { value: "oval", label: "Oval", img: "./images/oval.jpg" }
-    ] : [
-      { value: "hourglass", label: "Hourglass", img:"./images/hourglass.jpg" },
-      { value: "triangle", label: "Triangle", img:"./images/triangle-women.jpg" },
-      { value: "pear", label: "Pear", img: "images/female_pear.png" }
-    ]
+    options: (gender) =>
+      gender === "male"
+        ? [
+            { value: "rectangle", label: "Rectangle", img: "./images/trapiod.jpg" },
+            { value: "trapezoid", label: "Trapezoid", img: "./images/rectrancle.jpg" },
+            { value: "oval", label: "Oval", img: "./images/oval.jpg" }
+          ]
+        : [
+            { value: "hourglass", label: "Hourglass", img: "./images/hourglass.jpg" },
+            { value: "triangle", label: "Triangle", img: "./images/triangle-women.jpg" },
+            { value: "Oval", label: "Oval", img: "./images/Oval.png" }
+          ]
   },
   {
     id: 4,
     question: "What type of style do you want?",
-    options: (gender) => gender === "male" ? [
-      { value: "Formal", label: "Classic", img: "./images/formal.jpg" },
-      { value: "casual", label: "Casual", img:  "./images/formal.jpg" },
-      { value: "trendy", label: "Trendy", img:  "./images/formal.jpg" }
-    ] : [
-      { value: "bohemian", label: "Bohemian", img: "./images/formal.jpg"},
-      { value: "preppy", label: "Preppy", img:  "./images/formal.jpg"},
-      { value: "glamorous", label: "Glamorous", img:  "./images/formal.jpg" }
-    ]
+    options: (gender) =>
+      gender === "male"
+        ? [
+            { value: "Formal", label: "Formal", img: "./images/formal.jpg" },
+            { value: "casual", label: "Casual", img: "https://images.unsplash.com/photo-1518723276788-e08d67cf8927?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhc3VhbCUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D" },
+            { value: "trendy", label: "Trendy", img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVuZHklMjBtYW58ZW58MHx8MHx8fDA%3D" },
+            { value: "Athleisure", label: "Athleisure", img: "https://images.unsplash.com/photo-1679768763201-e07480531b49?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGF0aGxldGljJTIwbWFufGVufDB8fDB8fHww" }
+          ]
+        : [
+            { value: "Traditional", label: "Traditional", img: "./images/tradtionalWomen.jpg" },
+            { value: "Formal", label: "Formal", img: "./images/formalWomen.jpg" },
+            { value: "glamorous", label: "Glamorous", img: "https://images.unsplash.com/photo-1616847220575-31b062a4cd05?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tZW4lMjBmYXNoaW9ufGVufDB8fDB8fHww" },
+            { value: "Athleisure", label: "Athleisure", img: "./images/Athlisure.png" }
+          ]
   },
   {
     id: 5,
     question: "For what type of occasion do you want to be styled?",
-    options: (gender) => gender === "male" ? [
-      { value: "business", label: "Business Meeting", img: "./images/formal.jpg" },
-      { value: "date", label: "Date Night", img:  "./images/formal.jpg"},
-      { value: "weekend", label: "Weekend Outing", img: "./images/formal.jpg" }
-    ] : [
-      { value: "cocktail", label: "Cocktail Party", img: "./images/traditional.jpg" },
-      { value: "wedding", label: "Wedding Guest", img: "./images/formal.jpg" },
-      { value: "brunch", label: "Sunday Brunch", img:  "./images/formal.jpg" }
-    ]
+    options: (gender) =>
+      gender === "male"
+        ? [
+            { value: "business", label: "Business Meeting", img: "https://images.unsplash.com/photo-1626105985445-6430a31f6f96?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJ1c2luZXNzJTIwbWVldGluZ3xlbnwwfHwwfHx8MA%3D%3D" },
+            { value: "date", label: "Date", img: "https://images.unsplash.com/photo-1617335048933-4efb94f812f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RGF0ZXxlbnwwfHwwfHx8MA%3D%3D" },
+            { value: "weekend", label: "Weekend Outing", img: "./images/WeekendMen.jpg" },
+            { value: "wedding", label: "Wedding Guest", img: "./images/weddingMen.jpg" }
+          ]
+        : [
+            { value: "cocktail", label: "Cocktail Party", img: "./images/partyWomen.jpg" },
+            { value: "date", label: "Date", img: "https://images.unsplash.com/photo-1617335048933-4efb94f812f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RGF0ZXxlbnwwfHwwfHx8MA%3D%3D" },
+            { value: "wedding", label: "Wedding Guest", img: "./images/etnical.jpg" },
+            { value: "brunch", label: "Sunday Brunch", img: "https://images.unsplash.com/photo-1528812969535-4bcefc071532?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGF0aGxlc3VyZSUyMHdvbWVufGVufDB8fDB8fHww" }
+          ]
   }
 ];
 
 function renderQuiz() {
-  const quizContainer = document.querySelector('.quiz-container');
-  quizContainer.innerHTML = ''; // Clear existing content
-  
+  const quizContainer = document.querySelector(".quiz-container");
+  quizContainer.innerHTML = ""; // Clear existing content
+
   // Add progress bar
   quizContainer.innerHTML = `
     <div class="progress-container">
       <div id="progress-bar" class="progress-bar"></div>
     </div>
   `;
-  
+
   questions.forEach((q, index) => {
-    const questionDiv = document.createElement('div');
-    questionDiv.className = 'question';
+    const questionDiv = document.createElement("div");
+    questionDiv.className = "question";
     questionDiv.id = `question-${q.id}`;
-    questionDiv.style.display = index === 0 ? 'block' : 'none';
+    questionDiv.style.display = index === 0 ? "block" : "none";
 
     const options = typeof q.options === "function" ? q.options(gen) : q.options;
 
     questionDiv.innerHTML = `
       <h2>Q${q.id}: ${q.question}</h2>
       <div class="options">
-        ${options.map(option => `
+        ${options
+          .map(
+            (option) => `
           <label class="option">
             <input type="radio" name="question-${q.id}" value="${option.value}">
             <div class="option-content">
@@ -97,51 +307,58 @@ function renderQuiz() {
               <span>${option.label}</span>
             </div>
           </label>
-        `).join('')}
+        `
+          )
+          .join("")}
       </div>
     `;
 
     quizContainer.appendChild(questionDiv);
   });
-  
-  // Add event listeners for option selection
-  quizContainer.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', () => {
+
+  attachOptionListeners();
+  updateProgressBar(1);
+}
+
+function attachOptionListeners() {
+  const quizContainer = document.querySelector(".quiz-container");
+
+  quizContainer.querySelectorAll(".option").forEach((option) => {
+    option.addEventListener("click", () => {
       const radio = option.querySelector('input[type="radio"]');
       radio.checked = true;
-      option.closest('.question').querySelectorAll('.option').forEach(opt => {
-        opt.classList.toggle('selected', opt === option);
-      });
+
+      option
+        .closest(".question")
+        .querySelectorAll(".option")
+        .forEach((opt) => {
+          opt.classList.toggle("selected", opt === option);
+        });
+
       nextQuestion();
     });
   });
-
-  updateProgressBar(1);
 }
 
 function nextQuestion() {
   const currentQuestion = document.querySelector('.question:not([style*="display: none"])');
-  const currentQuestionNum = parseInt(currentQuestion.id.split('-')[1]);
+  const currentQuestionNum = parseInt(currentQuestion.id.split("-")[1]);
   const selectedOption = currentQuestion.querySelector('input[type="radio"]:checked');
 
-  if (!selectedOption) {
-    return; // Don't proceed if no option is selected
-  }
+  if (!selectedOption) return; // Ensure an option is selected
 
-  storeAnswer(currentQuestionNum, selectedOption.value);
+  const answer = selectedOption.value;
+  storeAnswer(currentQuestionNum, answer);
 
-  currentQuestion.style.display = 'none';
+  currentQuestion.style.display = "none";
   const nextQuestionNum = currentQuestionNum + 1;
 
   if (document.getElementById(`question-${nextQuestionNum}`)) {
     const nextQuestion = document.getElementById(`question-${nextQuestionNum}`);
-    
-    // Update options for gender-dependent questions
-    if (nextQuestionNum >= 3) {
+    if (typeof questions[nextQuestionNum - 1].options === "function") {
       updateGenderSpecificOptions(nextQuestion, nextQuestionNum);
     }
-    
-    nextQuestion.style.display = 'block';
+    nextQuestion.style.display = "block";
     updateProgressBar(nextQuestionNum);
   } else {
     handleSubmit();
@@ -150,41 +367,34 @@ function nextQuestion() {
 
 function updateGenderSpecificOptions(questionDiv, questionNum) {
   const options = questions[questionNum - 1].options(gen);
-  const optionsContainer = questionDiv.querySelector('.options');
-  optionsContainer.innerHTML = options.map(option => `
-    <label class="option">
-      <input type="radio" name="question-${questionNum}" value="${option.value}">
-      <div class="option-content">
-        <img src="${option.img}" alt="${option.label}">
-        <span>${option.label}</span>
-      </div>
-    </label>
-  `).join('');
+  const optionsContainer = questionDiv.querySelector(".options");
 
-  // Re-add event listeners for new options
-  questionDiv.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', () => {
-      const radio = option.querySelector('input[type="radio"]');
-      radio.checked = true;
-      questionDiv.querySelectorAll('.option').forEach(opt => {
-        opt.classList.toggle('selected', opt === option);
-      });
-      nextQuestion();
-    });
-  });
+  optionsContainer.innerHTML = options
+    .map(
+      (option) => `
+      <label class="option">
+        <input type="radio" name="question-${questionNum}" value="${option.value}">
+        <div class="option-content">
+          <img src="${option.img}" alt="${option.label}">
+          <span>${option.label}</span>
+        </div>
+      </label>
+    `
+    )
+    .join("");
+
+  attachOptionListeners(); // Rebind event listeners
 }
 
 function updateProgressBar(questionNumber) {
-  const progressBar = document.getElementById('progress-bar');
+  const progressBar = document.getElementById("progress-bar");
   const progressPercentage = (questionNumber / totalQuestions) * 100;
   progressBar.style.width = `${progressPercentage}%`;
 }
 
 function storeAnswer(questionNumber, answer) {
-  const questionKeys = ['gender', 'skinTone', 'bodyType', 'styleType', 'occasion'];
-  if (questionNumber === 1) {
-    gen = answer;
-  }
+  const questionKeys = ["gender", "skinTone", "bodyType", "styleType", "occasion"];
+  if (questionNumber === 1) gen = answer; // Update gender
   answers[questionNumber - 1] = { [questionKeys[questionNumber - 1]]: answer };
 }
 async function handleSubmit() {

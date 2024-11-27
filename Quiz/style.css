@@ -237,3 +237,6 @@ h2 {
     100% { transform: rotate(360deg); }
   }
   
+  input[type="radio"] {
+    display: none;
+  }
